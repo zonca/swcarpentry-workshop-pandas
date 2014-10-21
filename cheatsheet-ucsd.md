@@ -1,24 +1,21 @@
-Useful Scientific Computing Websites
+#Useful Scientific Computing Websites
 (Curated by: Carol Willing, PyLadies San Diego, 10/2014)
 
-San Diego Python User Group
-http://pythonsd.org/pages/getting-started.html
+## Local and web resources
+San Diego Python User Group http://pythonsd.org/pages/getting-started.html
 
-PyLadies.org Resources
-http://www.pyladies.com/resources/
+PyLadies.org Resources http://www.pyladies.com/resources/
 
 OpenHatch.org Resources
-Open Source Comes to Campus
-http://campus.openhatch.org/
+Open Source Comes to Campus http://campus.openhatch.org/
 The curriculum is available and is open source.
 
-Software Carpentry
-http://softwarecarpentry.org
+Software Carpentry http://softwarecarpentry.org
 
-PyVideo.org
-A collection of talks and tutorials from all major Python conferences. SciPy is a scientific computing conference
+PyVideo.org http://pyvideo.org
+A collection of talks and tutorials from all major Python conferences. SciPy is a scientific computing conference.
 
-Some git cheatsheets
+##Some git cheatsheets
 git-osx-installer - Install Git on Mac OS X. Build tools not required. - Google Project Hosting
 https://code.google.com/p/git-osx-installer/
 
@@ -47,4 +44,4 @@ On undoing, fixing, or removing commits in git
 http://sethrobertson.github.io/GitFixUm/fixup.html
 
 Learn Git Branching
-http://pcottle.github.io/learnGitBranching/
+http://pcottle.github.io/learnGitBranching/ This interactive website demonstrates how to use git and branching.
