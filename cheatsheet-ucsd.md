@@ -40,6 +40,8 @@ http://www.git-legit.org/
 Git Cheatsheet • NDP Software
 http://ndpsoftware.com/git-cheatsheet.html
 
+GitFAQ.org http://gitfaq.org
+
 On undoing, fixing, or removing commits in git
 http://sethrobertson.github.io/GitFixUm/fixup.html
 
