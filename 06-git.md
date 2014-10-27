@@ -44,3 +44,37 @@ make a change from the web interface, that changes nothing locally!
 Try another commit locally, push to github
 
 Show different parts of the github GUI, show how research group in the area of the students use github for code or papers.
+
+Create a new local copy of the repository with `git clone` by pasting the repository address from the right column of the repository homepage under "**HTTPS** clone URL".
+
+## Conflicts
+
+Make a commit on your original copy of the repository and push it to Github.
+Now if in the other local copy you make a commit and try to push to Github `git` fails:
+
+    To https://github.com/xxxxxxxxxxxxxxxxxxxxxxxxx
+     ! [rejected]        master -> master (non-fast-forward)
+    error: failed to push some refs to 'https://github.com/xxxxxxxxxxx.git'
+    hint: Updates were rejected because the tip of your current branch is behind
+    hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+    hint: before pushing again.
+    hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+`git` prevents you to loose or overwrite history.
+
+You first need to get the other changes from Github to your local copy with:
+
+    git pull origin master
+    
+If changes are on different files or on different section of the same file `git`
+generally is able to automatically merge them and then we can just push
+our new changes with:
+
+    git push origin master
+    
+Instead if we edited the very same lines `git` fails, we need then to open manually
+the conflicting files, look for the lines with `======` characters, fix them, then:
+
+    git add CONFLICTINGFILE
+    git commit -m "Fixed conflict in CONFLICTINGFILE"
+    git push origin master
