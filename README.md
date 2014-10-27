@@ -10,4 +10,4 @@ Remix of Software Carpentry material using intermediate pandas lesson and concep
 * [Defensive programming](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/04-defensive.ipynb)
 * [Creating a Python module](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/05-module.ipynb)
 
-Link to the repository with the `pipeline.sh` script, the python script and the python module: <https://github.com/zonca/swcarpentry-workshop-pandas>
+Link to the repository with the `pipeline.sh` script, the python script and the python module: <https://github.com/zonca/software-carpentry-workshop/>
