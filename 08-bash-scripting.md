@@ -1,13 +1,15 @@
 ## Introduction
 
-What it is? command line text only interface to filesystem (like file manager GUI) + execute commands on files (like double clicking or open with menu in file manager GUI)
+What it is? 
+
+A command line text only interface to filesystem (like file manager GUI) + execute commands on files (like double clicking or open with menu in file manager GUI)
 
 Ask students not to take notes and show quickly that `ls` is same as file manager GUI, `mkdir` creates a folder that shows up in the file manager GUI, show `cd` in and out a folder.
 
 The purpose here is to show students that never saw a command line interface before what it is.
 
-Motivation: ssh into a supercomputer, bash is the only interface available
-Motivation: automate everything, let the computer do boring stuff
+* Motivation: ssh into a supercomputer, bash is the only interface available
+* Motivation: automate everything, let the computer do boring stuff
 
 ## Motivating exercise
 
@@ -15,12 +17,12 @@ We have a tar archive with some data files and some badly formatted files,
 we want to learn how to:
 
 * Delete some useless files
-* Move bad files in a subfolder
 * Rename the good files with a better name
-* Apply an plotting script that works on 1 file a time to all data files
+* Apply an analysis script that works on 1 file a time to all data files
+* Move plots and output `.csv` in separate folders
 * Put this in a bash script so we can automate the process next time we get a data delivery
 
-## First bash commands:
+## First bash commands
 
 * `pwd` print out current folder
 * `ls` lists files in current folder
@@ -30,7 +32,6 @@ we want to learn how to:
 * `cd` changes directory to home folder
 * `ls ..` lists files in parent folder
 * `echo Hello World` print a string
-
 
 ## Shell expansion
 
@@ -49,37 +50,36 @@ So, don't start with `ls` but just with `echo`:
 * `echo *csv` try this on your machine, what happens? 
 * `ls *.csv` here `ls` gets already the list of `csv` files
 
+## Get the archive, unzip and remove bad files
+
+Back to the exercise, get the data zip file using `curl`:
+
+```bash
+curl https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/rawdata/rawdata.zip?raw=true -o rawdata.zip -L
+```
+
+The first parameters is the URL of the file, `-o` specifies the name of the output file, and `-L` is necessary to follow the redirects on Github, this is generally not necessary on other websites.
+
 We can now remove the useless files (first always use `ls` or `echo`):
 
-`ls / rm ._*.csv`
-
-## Command options, manual
-
-Get an example option from `ls` for example `-I --ignore`
-(FIXME find bettere example, this doesn't work on MAC)
-
-*exercise*: read manual of `head` and print first 3 lines of gapminder file
-
-    mkdir obsolete
-    mv *broken* obsolete/
-    ls obsolete
+`ls / rm _*.csv`
 
 ## Batch files renaming
 
+The data files have extension `.txt`, actually `.csv` is more descriptive,
+so we want to rename all of them in batch mode:
+
 Rename files using:
 
-    for f in *.csv
+    for f in *.txt
     do 
-        mv $f ${f/-/_2014-06-16_}
+        mv $f ${f/txt/csv}
     done
 
-needed to explain the weird syntax of `${f/-/_2014-06-16_}`, this is basically
-taking the string in`f`` and replacing `-` with `_2014-06-16_`.
-Also explain `for`, i.e. we are repeating the `mv` operation for every `csv` file,
-quite intuitive.
+* `${f/txt/csv}` replaces every occurrence of `txt` with `csv`
+* `for` is repeating the `mv` operation for every `csv` file.
 
 ## Run analysis script
-
 
 Go quickly through the script, show that the script works with just 1 file,
 opens it, plots it and saveas a `png` or `pdf`.
@@ -100,11 +100,10 @@ Move figures to subfolder:
 
 ## Show integrated bash script
 
-Now ask students not to take notes, explain we just created a text file
-that ends in `sh` using the commands we saw before,
-go line by line on the script: <https://gist.github.com/zonca/96e7651830f777b070b7>
-Just mention that `curl` downloads the data and `unzip` unzips them.
+The purpose is to run all our analysis pipeline with a single command,
+this is a bash script that does data cleaning and then launches our Python script
+on every input data file.
 
-Now run the script and show the students that it automatically performs all the
-operations we did during the morning.
-Ready to be reproduced and to make a boring task run with 1 command.
+See the final version of the `pipeline.sh` script: 
+
+* <https://github.com/zonca/software-carpentry-workshop/blob/master/pipeline.sh>
