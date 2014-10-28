@@ -50,7 +50,8 @@ http://pcottle.github.io/learnGitBranching/ This interactive website demonstrate
 
 
 ## Scientific Computing: IPython and Project Jupyter
-Excellent book by Cyrille Rossant http://cyrille.rossant.net/books/#cookbook
 
-Project Jupyter http://jupyter.org/
+* Excellent book by Cyrille Rossant http://cyrille.rossant.net/books/#cookbook
+* Project Jupyter http://jupyter.org/
+* [Scipy lectures](https://scipy-lectures.github.io/): tutorials on advanced topics like FFT, image processing, linear algebra, optimization and so on.
 
