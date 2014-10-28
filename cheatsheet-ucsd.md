@@ -10,7 +10,7 @@ OpenHatch.org Resources
 Open Source Comes to Campus http://campus.openhatch.org/
 The curriculum is available and is open source.
 
-Software Carpentry http://softwarecarpentry.org
+More Software Carpentry lessons http://software-carpentry.org/lessons.html
 
 PyVideo.org http://pyvideo.org
 A collection of talks and tutorials from all major Python conferences. SciPy is a scientific computing conference.
@@ -53,7 +53,3 @@ http://pcottle.github.io/learnGitBranching/ This interactive website demonstrate
 * Excellent book by Cyrille Rossant http://cyrille.rossant.net/books/#cookbook
 * Project Jupyter http://jupyter.org/
 * [Scipy lectures](https://scipy-lectures.github.io/): tutorials on advanced topics like FFT, image processing, linear algebra, optimization and so on.
-
-## More software carpentry lessons
-
-* [All Software Carpentry lessons](http://software-carpentry.org/lessons.html)
