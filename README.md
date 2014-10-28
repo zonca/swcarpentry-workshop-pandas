@@ -13,6 +13,7 @@ This repository contains the source of each notebook, you can either get a copy 
 * [Loop over multiple files](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/03-loop.ipynb)
 * [Defensive programming](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/04-defensive.ipynb)
 * [Creating a Python module](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/05-module.ipynb)
+* [Extra lesson: Python errors and traceback](http://nbviewer.ipython.org/github/zonca/swcarpentry-workshop-pandas/blob/master/extra1-errors.ipynb)
 
 ### Second day 
 
