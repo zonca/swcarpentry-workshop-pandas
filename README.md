@@ -24,4 +24,4 @@ on every data file. The lessons are separated here by topic, but need to be pres
 * [Introduction to `git` for version control](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/06-git.md)
 * [Creating a Python batch script](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/07-python-script.md)
 * [Introduction to the bash command line shell](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/08-bash-scripting.md)
-* [Final repository](https://github.com/zonca/software-carpentry-workshop/)
+* [Link to the repository with the final version of the library and the scripts](https://github.com/zonca/software-carpentry-workshop/)
