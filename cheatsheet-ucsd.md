@@ -1,4 +1,4 @@
-#Useful Scientific Computing Websites
+# Useful Scientific Computing Websites
 (Curated by: Carol Willing, PyLadies San Diego, 10/2014)
 
 ## Local and web resources
@@ -48,10 +48,12 @@ http://sethrobertson.github.io/GitFixUm/fixup.html
 Learn Git Branching
 http://pcottle.github.io/learnGitBranching/ This interactive website demonstrates how to use git and branching.
 
-
 ## Scientific Computing: IPython and Project Jupyter
 
 * Excellent book by Cyrille Rossant http://cyrille.rossant.net/books/#cookbook
 * Project Jupyter http://jupyter.org/
 * [Scipy lectures](https://scipy-lectures.github.io/): tutorials on advanced topics like FFT, image processing, linear algebra, optimization and so on.
 
+## More software carpentry lessons
+
+* [All Software Carpentry lessons](http://software-carpentry.org/lessons.html)
