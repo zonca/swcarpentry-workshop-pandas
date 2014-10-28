@@ -44,11 +44,15 @@ first thing we need to implement saving the parameters to file and saving the pl
 The `parameters` variable is a data structure defined in `pandas` and has a method to write its own content
 to disk as comma separated values, `.to_csv`:
 
-    parameters.to_csv("parameters.csv")
-    
+```python
+parameters.to_csv("parameters.csv")
+```
+
 Saving a plot is accomplished calling:
-    
-    `plt.savefig("output_plot.png")`
+   
+```python
+plt.savefig("output_plot.png")
+```
 
 just after `plt.plot` in the `analyze` function of `analyze_mosquito_data_lib.py`, where the extension of the file can be `.jpg`, `.png`, `.pdf` and many more.
 
@@ -90,8 +94,10 @@ def analyze(data, figure_filename):
 If the input `filename` is `A1_mosquito_data.csv`, we could like the outputs to be `A1_mosquito_data.png` `A1_mosquito_parameters.csv`.
 We can achieve this with the `replace` method of the `filename` string:
 
-* `filename.replace("csv", "png")`
-* `filename.replace("data", "parameters")`
+```python
+filename.replace("csv", "png")
+filename.replace("data", "parameters")
+```
 
 Therefore the current version of `analyze_mosquito_data_script.py` is:
 
