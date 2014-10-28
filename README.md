@@ -26,3 +26,7 @@ on every data file. The lessons are separated here by topic, but need to be pres
 * [Creating a Python batch script](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/07-python-script.md)
 * [Introduction to the bash command line shell](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/08-bash-scripting.md)
 * [Link to the repository with the final version of the library and the scripts](https://github.com/zonca/software-carpentry-workshop/)
+
+### Other resources
+
+* [Learn more about Python/git/bash](https://github.com/zonca/swcarpentry-workshop-pandas/blob/master/cheatsheet-ucsd.md)
