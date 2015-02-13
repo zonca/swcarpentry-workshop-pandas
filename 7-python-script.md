@@ -13,7 +13,6 @@ and let's copy the code we used in the last class on Python to run the functions
     
     filename = "A1_mosquito_data.csv"
     data = pd.read_csv(filename)
-    data["temperature"] = mosquito_lib.fahr_to_celsius(data["temperature"])
     parameters = mosquito_lib.analyze(data)
     print(parameters)
 ```
@@ -67,36 +66,16 @@ The final version of the function will be:
 
 ```python
 def analyze(data, figure_filename):
-    """Perform regression analysis on mosquito data
-    
-    Takes a dataframe as input that includes columns named 'temperature',
-    'rainfall', and 'mosquitos'.
-    figure_filename is the name of the output plot 
-        
-    For consistency, always use temperature in Celsius.
-    
-    Performs a multiple regression to predict the number of mosquitos.
-    Creates an observed-predicted plot of the result and
-    returns the parameters of the regression.
-    
-    """
-    regr_results = sm.OLS.from_formula('mosquitos ~ temperature + rainfall', data).fit()
-    parameters = regr_results.params
-    predicted = parameters['Intercept'] + parameters['temperature'] * data['temperature'] + parameters['rainfall'] * data['rainfall']
-    plt.figure()
-    plt.plot(predicted, data['mosquitos'], 'ro')
-    min_mosquitos, max_mosquitos = min(data['mosquitos']), max(data['mosquitos'])
-    plt.plot([min_mosquitos, max_mosquitos], [min_mosquitos, max_mosquitos], 'k-')
     plt.savefig(figure_filename)
-    return parameters
+
 ```
 
 If the input `filename` is `A1_mosquito_data.csv`, we could like the outputs to be `A1_mosquito_data.png` `A1_mosquito_parameters.csv`.
 We can achieve this with the `replace` method of the `filename` string:
 
 ```python
-filename.replace("csv", "png")
-filename.replace("data", "parameters")
+filename.replace("csv", "png").replace("data", "plot_" + variable)
+filename.replace("data", "parameters_" + variable)
 ```
 
 Therefore the current version of `analyze_mosquito_data_script.py` is:
@@ -107,9 +86,7 @@ Therefore the current version of `analyze_mosquito_data_script.py` is:
     
     filename = "A1_mosquito_data.csv"
     data = pd.read_csv(filename)
-    data["temperature"] = mosquito_lib.fahr_to_celsius(data["temperature"])
-    parameters = mosquito_lib.analyze(data, filename.replace("csv", "png"))
-    parameters.to_csv(filename.replace("data", "parameters"))
+    mosquito_lib.analyze(data, filename)
 ```
 
 ## Arguments from the command line
@@ -138,14 +115,7 @@ print "Analyzing", filename
 
 # read the data
 data = pd.read_csv(filename)
-data["temperature"] = mosquito_lib.fahr_to_celsius(
-                              data["temperature"])
 							  
 print "Running analyze"
-parameters = mosquito_lib.analyze(data, 
-                    filename.replace("csv", "png"))
-
-print "Saving parameters"				
-# save parameters to file
-parameters.to_csv(filename.replace("data", "parameters"))
+mosquito_lib.analyze(data, filename)
 ```

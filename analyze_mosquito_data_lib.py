@@ -2,29 +2,44 @@ import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 
-def fahr_to_celsius(tempF):
-    """Convert fahrenheit to celsius"""
-    tempC = (tempF - 32) * 5 / 9.0
-    return tempC
+def fahr_to_celsius(temp_fahr):
+    """Convert temperature from Fahrenheit to Celsius"""
+    temp_celsius = (temp_fahr - 32) * 5 / 9.0
+    return temp_celsius
 
 def analyze(data):
     """Perform regression analysis on mosquito data
+   
+    Performs a linear regression based on rainfall.
+    Creates a plot of the result and returns fit parameters.
     
-    Takes a dataframe as input that includes columns named 'temperature',
-    'rainfall', and 'mosquitos'.
-        
-    For consistency, always use temperature in Celsius.
-    
-    Performs a multiple regression to predict the number of mosquitos.
-    Creates an observed-predicted plot of the result and
-    returns the parameters of the regression.
-    
+    Parameters
+    ----------
+    data : pandas.Dataframe
+        Column named 'temperature', 'rainfall' and 'mosquitos'.
+            
+    Returns
+    -------
+    parameters_rainfall : pandas.Series
+        Fit parameters named Intercept and rainfall
+    parameters_temperature : pandas.Series
+        Fit parameters named Intercept and temperature
     """
-    regr_results = sm.OLS.from_formula('mosquitos ~ temperature + rainfall', data).fit()
-    parameters = regr_results.params
-    predicted = parameters['Intercept'] + parameters['temperature'] * data['temperature'] + parameters['rainfall'] * data['rainfall']
-    plt.figure()
-    plt.plot(predicted, data['mosquitos'], 'ro')
-    min_mosquitos, max_mosquitos = min(data['mosquitos']), max(data['mosquitos'])
-    plt.plot([min_mosquitos, max_mosquitos], [min_mosquitos, max_mosquitos], 'k-')
-    return parameters
+    data['temperature'] = fahr_to_celsius(data['temperature'])
+    assert data['temperature'].min() > -50
+    assert data['rainfall'].min() > 0
+    output = []
+    for variable in ['rainfall', 'temperature']:
+        # linear fit
+        regr_results = sm.OLS.from_formula('mosquitos ~ ' + variable, data).fit()
+        parameters = regr_results.params
+        line_fit = parameters['Intercept'] + parameters[variable] * data[variable]
+        # plotting
+        plt.figure()
+        plt.plot(data[variable], data['mosquitos'], '.', label="data")
+        plt.plot(data[variable], line_fit, 'red', label="fit")
+        plt.xlabel(variable)
+        plt.ylabel('mosquitos')
+        plt.legend(loc='best')
+        output.append(parameters)
+    return output
