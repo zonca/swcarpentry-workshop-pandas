@@ -10,8 +10,8 @@ def fahr_to_celsius(temp_fahr):
 def analyze(data):
     """Perform regression analysis on mosquito data
    
-    Performs a linear regression based on rainfall.
-    Creates a plot of the result and returns fit parameters.
+    Performs a linear regression based on rainfall and temperature.
+    Creates two plots of the results and returns fit parameters.
     
     Parameters
     ----------
@@ -20,10 +20,9 @@ def analyze(data):
             
     Returns
     -------
-    parameters_rainfall : pandas.Series
-        Fit parameters named Intercept and rainfall
-    parameters_temperature : pandas.Series
-        Fit parameters named Intercept and temperature
+    parameters : list of pandas.Series
+        Return a list of the fitting parameters for rainfall and temperature
+    
     """
     data['temperature'] = fahr_to_celsius(data['temperature'])
     assert data['temperature'].min() > -50
