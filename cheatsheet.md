@@ -7,3 +7,5 @@
 * Gallery of `matplotlib` plots: <http://matplotlib.org/gallery.html>
 * Pandas tutorials: <http://pandas.pydata.org/pandas-docs/stable/tutorials.html>
 * Git book: <http://git-scm.com/book/en/v2>
+* Class on `bash` scripting for Scientists <http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/ShellScriptingSci/introduction#notes>
+
